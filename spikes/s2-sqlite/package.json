@@ -1,0 +1,17 @@
+{
+  "name": "@lcl/spike-s2-sqlite",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "@lcl/spike-s1-graph": "*"
+  },
+  "scripts": {
+    "bench": "node --expose-gc --import tsx src/bench.ts",
+    "probe": "node --import tsx src/probe.ts"
+  }
+}

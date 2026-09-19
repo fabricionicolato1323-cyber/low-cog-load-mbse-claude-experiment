@@ -1,0 +1,76 @@
+{
+  "$comment": "GENERATED from @lcl/contracts (zod). Do not edit; run `npm run contracts`.",
+  "$id": "urn:lcl:contract:Provenance",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "origin": {
+      "type": "string",
+      "enum": [
+        "user",
+        "deterministic-rule",
+        "import",
+        "external-source",
+        "tool-result",
+        "llm-advisory",
+        "admin-migration"
+      ]
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceRef": {
+      "type": "object",
+      "properties": {
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "system",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ruleId": {
+      "type": "string"
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "promptHash": {
+          "type": "string",
+          "minLength": 8
+        },
+        "paramsHash": {
+          "type": "string",
+          "minLength": 8
+        }
+      },
+      "required": [
+        "id",
+        "promptHash",
+        "paramsHash"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "origin",
+    "actor"
+  ],
+  "additionalProperties": false
+}

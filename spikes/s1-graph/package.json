@@ -1,0 +1,12 @@
+{
+  "name": "@lcl/spike-s1-graph",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "bench": "node --expose-gc --import tsx src/bench.ts"
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.tmp/
+coverage/
+test-results/
+playwright-report/
+spikes/**/out/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+.tmp-*.log

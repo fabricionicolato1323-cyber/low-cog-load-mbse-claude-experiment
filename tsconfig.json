@@ -1,0 +1,47 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/contracts"
+    },
+    {
+      "path": "packages/kernel"
+    },
+    {
+      "path": "packages/ports"
+    },
+    {
+      "path": "packages/app"
+    },
+    {
+      "path": "packages/api"
+    },
+    {
+      "path": "packages/profiles"
+    },
+    {
+      "path": "packages/web"
+    },
+    {
+      "path": "adapters/store-sqlite"
+    },
+    {
+      "path": "adapters/llm-ollama"
+    },
+    {
+      "path": "spikes/s1-graph"
+    },
+    {
+      "path": "spikes/s2-sqlite"
+    },
+    {
+      "path": "spikes/s3-llm"
+    },
+    {
+      "path": "spikes/s4-render"
+    },
+    {
+      "path": "tools"
+    }
+  ]
+}

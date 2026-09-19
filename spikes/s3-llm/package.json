@@ -1,0 +1,13 @@
+{
+  "name": "@lcl/spike-s3-llm",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run:model": "tsx src/run.ts",
+    "report": "tsx src/report.ts"
+  },
+  "dependencies": {
+    "zod": "4.6.5"
+  }
+}

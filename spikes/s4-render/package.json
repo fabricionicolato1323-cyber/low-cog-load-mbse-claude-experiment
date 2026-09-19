@@ -1,0 +1,21 @@
+{
+  "name": "@lcl/spike-s4-render",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "cytoscape": "^3.34.3",
+    "elkjs": "^0.12.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/cytoscape": "^3.31.0",
+    "vite": "^8.3.0"
+  },
+  "scripts": {
+    "bench": "node --import tsx src/run.ts"
+  }
+}
