@@ -1,6 +1,6 @@
 # Independent Implementation Roadmap
 
-Depends on: `REQUIREMENTS_ANALYSIS.md`, `ARCHITECTURE_OPTIONS.md` (Option A), `TECHNOLOGY_STACK_DECISION.md` (TypeScript/Node, SQLite, React). Date: 2026-09-19.
+Depends on: `REQUIREMENTS_ANALYSIS.md`, `ARCHITECTURE_OPTIONS.md` (Option A), `TECHNOLOGY_STACK_DECISION.md` (TypeScript/Node, SQLite, React), and ADR-0003 (Arcadia as primary semantic seed). Date: 2026-09-19.
 Nothing in this roadmap is implemented yet. Sizes are relative (S/M/L), not calendar estimates.
 
 ## 1. Sequencing principles
@@ -62,7 +62,7 @@ Slices 9-12 are order-flexible after Slice 8; Slice 7 may swap with Slice 6.
 **User story:** *I start a new project by stating my engineering challenge; the system tells me what it understands, asks the single most useful next question, and I can confirm/correct answers; everything persists and can be explained.*
 **Scope (thin but end-to-end):**
 - Kernel: element/relation model, UUID-style IDs, provenance origins, revisions, `ChangeSet` lifecycle, validator, `CommitService`, candidate store, idempotent retry, rebuild-from-log.
-- Ontology runtime + `core.neutral` v0 (small: challenge/purpose, objective, stakeholder/entity, requirement, constraint, assumption, function, system element - grown only as needed) with 3 rule kinds (`cardinality`, `required-relation`, `endpoint-constraint`), information needs + question templates + aliases from data.
+- Ontology runtime + **Arcadia-seeded generalized canonical baseline**. Before hardening `core.neutral` v0, build a coverage catalogue from relevant Arcadia semantic families (Operational Analysis, System Need/functional, Logical, Physical/Realization, scenarios, exchanges, states/modes/situations/configurations, requirements/measures, allocations and traceability). Classify each supported Arcadia concept as direct canonical equivalent, canonical composition, profile-only, representation-only, or deferred/unsupported with rationale. Implement only the subset needed by the Slice 1 walking skeleton, but do not invent that subset independently of the coverage baseline. Canonical names remain methodology-neutral. Include initial generic rule kinds (`cardinality`, `required-relation`, `endpoint-constraint`), information needs, question templates and aliases from data.
 - App: `NextActionPlanner` (deterministic, one primary action + <= 3 alternates + `why`), conversation history with "what changed"; compact **Understanding summary** with confirm / reject / refine on candidates (no IDs shown).
 - Store: SQLite adapter (log + materialised + candidates + conversation).
 - API + UI: Normal Mode conversation column, understanding summary, pending-candidate confirmation, disclosure-level switch (Normal/Advanced/Expert; Expert shows IDs/provenance as read-only).
@@ -105,7 +105,7 @@ Slices 9-12 are order-flexible after Slice 8; Slice 7 may swap with Slice 6.
 **Requirements:** IFACE-001..003, REQ-DY-001, 002, QUERY-003 (state/mode filter), MATRIX-001 (N²).
 
 ### Slice 7 - Profiles and gap types
-**Scope:** profile package format hardened; **two profiles** (a generic MBSE-style profile and an Arcadia-coverage profile) delivered purely as data; profile (de)activation with confirmation; vocabulary aliases by disclosure level; questioning strategies; methodology-gap vs canonical-gap reporting; **coverage table against Arcadia-class layers to test the neutral core (R4)**; property test: activating/deactivating profiles never changes confirmed elements/relations (SEM-042).
+**Scope:** profile package format hardened; **two profiles** (a generic MBSE-style profile and an Arcadia profile) delivered purely as data; profile (de)activation with confirmation; vocabulary aliases by disclosure level; questioning strategies; methodology-gap vs canonical-gap reporting; validate the Arcadia profile/mapping catalogue against the **Arcadia-seeded canonical coverage baseline created in Slice 1** and extend only through explicit ADRs when genuine semantic gaps are found; property test: activating/deactivating profiles never changes confirmed elements/relations (SEM-042).
 **Requirements:** SEM-002, 003, 040..043, 050, 051, REQ-BR-007, NFR-012..014, UX-012.
 
 ### Slice 8 - Brownfield import & reconciliation
@@ -171,7 +171,7 @@ Local, opt-in interaction event log (view opened/closed, conversation turns, cor
 
 | Risk | First checked | Response |
 |---|---|---|
-| Core vocabulary drift/bloat (A4/R4) | Slice 1, tested in 7 | ADR per new type; profile-first additions |
+| Core vocabulary drift/bloat (A4/R4) | Slice 1, revalidated in 7 | Arcadia-seeded coverage catalogue first; generalized canonical names; ADR for semantic extensions; profile-only concepts stay out of the core |
 | Local LLM too weak (R1) | Spike S3, Slice 2 | Guided capture stays first-class; cloud optional behind consent |
 | Scale seam needed (R2) | Spike S1, Slice 13 | Implement read port over SQL/graph DB only if benchmark demands |
 | UI clutter accumulation (UX-071) | M1, M2 | One-lens rule; disclosure levels; gate new lenses on validation |
