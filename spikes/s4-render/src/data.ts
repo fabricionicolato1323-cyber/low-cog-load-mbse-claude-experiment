@@ -78,3 +78,12 @@ export function visibleView(m: ClusterModel, expandedMids: ReadonlySet<number>):
   }
   return { nodes, edges: [...agg.values()] };
 }
+
+/** Post-hoc mitigation: keep only the `k` strongest aggregated edges per node (edges are still counted, never silently lost: a remainder badge would show the rest). */
+export function capEdgesPerNode(g: Graph, k: number): Graph {
+  const byNode = new Map<string, GEdge[]>();
+  for (const e of g.edges) for (const n of [e.source, e.target]) (byNode.get(n) ?? byNode.set(n, []).get(n)!).push(e);
+  const keep = new Set<string>();
+  for (const list of byNode.values()) for (const e of [...list].sort((a, b) => (b.count ?? 1) - (a.count ?? 1)).slice(0, k)) keep.add(e.id);
+  return { nodes: g.nodes, edges: g.edges.filter((e) => keep.has(e.id)) };
+}

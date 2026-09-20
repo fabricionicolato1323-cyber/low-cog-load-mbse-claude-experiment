@@ -58,6 +58,11 @@ describe("I-2 boundary rules FIRE on violating fixtures (guards against vacuous 
     f("packages/kernel/src/cyc1.ts", 'import "./cyc2.ts";\nexport const a = 1;\n');
     f("packages/kernel/src/cyc2.ts", 'import "./cyc1.ts";\nexport const b = 1;\n');
     f("packages/profiles/src/v-kernel.ts", 'import "../../kernel/src/index.ts";\n');
+    f("packages/contracts/src/v-core.ts", 'import { readFileSync } from "node:fs";\nexport const r = readFileSync;\n');
+    f("spikes/x/src/index.ts", "export const x = 1;\n");
+    f("packages/app/src/v-spike.ts", 'import "../../../spikes/x/src/index.ts";\n');
+    f("packages/app/test/helper.ts", "export const h = 1;\n");
+    f("packages/app/src/v-test.ts", 'import "../test/helper.ts";\n');
     // ---- allowed edges (must stay clean)
     f("packages/kernel/src/ok-contracts.ts", 'import "../../contracts/src/index.ts";\nimport { z } from "zod";\nexport const s = z.string();\n');
     f("packages/web/src/ok.ts", 'import "../../contracts/src/index.ts";\n');
@@ -82,6 +87,9 @@ describe("I-2 boundary rules FIRE on violating fixtures (guards against vacuous 
       ["ports-depend-on-kernel-and-contracts-only", "packages/ports/src/v-app.ts"],
       ["no-circular", "packages/kernel/src/cyc1.ts"],
       ["profiles-are-data-only", "packages/profiles/src/v-kernel.ts"],
+      ["contracts-only-schema-lib", "packages/contracts/src/v-core.ts"],
+      ["product-never-imports-spikes-or-tools", "packages/app/src/v-spike.ts"],
+      ["product-never-imports-tests", "packages/app/src/v-test.ts"],
     ].map(([r, f]) => `${r} <= ${f}`);
     for (const e of expected) expect(got.has(e), `missing violation: ${e}`).toBe(true);
     const offenders = [...got].filter((g) => /\/ok(-contracts)?\.ts$/.test(g));

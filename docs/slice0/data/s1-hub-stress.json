@@ -1,0 +1,74 @@
+{
+  "deg1000": {
+    "queryRuns": [
+      {
+        "ms": 223.2,
+        "total": 30511
+      },
+      {
+        "ms": 228.8,
+        "total": 30511
+      },
+      {
+        "ms": 239.4,
+        "total": 30511
+      }
+    ],
+    "impactMs": 72.2,
+    "impactSize": 45884
+  },
+  "deg5000": {
+    "queryRuns": [
+      {
+        "ms": 502.2,
+        "total": 34096
+      },
+      {
+        "ms": 473,
+        "total": 34096
+      },
+      {
+        "ms": 461.4,
+        "total": 34096
+      }
+    ],
+    "impactMs": 123.1,
+    "impactSize": 67713
+  },
+  "deg20000": {
+    "queryRuns": [
+      {
+        "ms": 533.7,
+        "total": 35323
+      },
+      {
+        "ms": 513.7,
+        "total": 35323
+      },
+      {
+        "ms": 500.3,
+        "total": 35323
+      }
+    ],
+    "impactMs": 213.1,
+    "impactSize": 80701
+  },
+  "deg50000": {
+    "queryRuns": [
+      {
+        "ms": 578,
+        "total": 36131
+      },
+      {
+        "ms": 543.9,
+        "total": 36131
+      },
+      {
+        "ms": 554.1,
+        "total": 36131
+      }
+    ],
+    "impactMs": 433.3,
+    "impactSize": 84616
+  }
+}

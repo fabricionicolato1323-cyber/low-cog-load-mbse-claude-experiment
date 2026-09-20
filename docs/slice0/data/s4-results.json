@@ -1,0 +1,137 @@
+{
+  "browser": "153.0.4234.32",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "viewport": "1100x700 canvas; 1000x640 grid",
+  "headless": true,
+  "note": "software raster in headless Edge; CPU-only machine",
+  "graph500": {
+    "nodes": 500,
+    "edges": 742,
+    "layoutMs": 938.7999999821186,
+    "renderMs": 226.09999999403954,
+    "layoutPlusRenderMs": 1164.8999999761581,
+    "mainThread": {
+      "longTaskMaxMs": 0,
+      "heartbeatMaxLagMs": 1.7000000178813934
+    },
+    "interactions": {
+      "panZoomStep": {
+        "n": 60,
+        "p50": 26.69999998807907,
+        "p95": 36.5,
+        "max": 79.10000002384186
+      },
+      "selectHighlight3Hop": {
+        "n": 20,
+        "p50": 39.5,
+        "p95": 50.5,
+        "max": 51
+      },
+      "visibleNodes": 500
+    },
+    "wallMs": 3810
+  },
+  "collapsed5000": {
+    "modelLeaves": 5000,
+    "modelEdges": 7500,
+    "initial": {
+      "label": "initial: 100 group nodes",
+      "visibleNodes": 100,
+      "visibleEdges": 1378,
+      "computeMs": 1.7999999821186066,
+      "layoutMs": 5218.600000023842,
+      "renderMs": 307.59999999403954,
+      "totalMs": 5528.199999988079
+    },
+    "expandOne": {
+      "label": "expand one group (+49 nodes)",
+      "visibleNodes": 149,
+      "visibleEdges": 1449,
+      "computeMs": 2.699999988079071,
+      "layoutMs": 6753.200000017881,
+      "renderMs": 246.19999998807907,
+      "totalMs": 7002.0999999940395
+    },
+    "stress": {
+      "label": "8 groups expanded (~490 visible)",
+      "visibleNodes": 492,
+      "visibleEdges": 1937,
+      "computeMs": 8.5,
+      "layoutMs": 6525.700000017881,
+      "renderMs": 362.39999997615814,
+      "totalMs": 6896.5999999940395
+    },
+    "interactionsAtStress": {
+      "panZoomStep": {
+        "n": 60,
+        "p50": 26.69999998807907,
+        "p95": 44.099999994039536,
+        "max": 53.400000005960464
+      },
+      "selectHighlight3Hop": {
+        "n": 20,
+        "p50": 84,
+        "p95": 101.5,
+        "max": 124.09999999403954
+      },
+      "visibleNodes": 492
+    },
+    "wallMs": 23013
+  },
+  "grid500": {
+    "n": 500,
+    "filledCells": 20000,
+    "virtualCells": 250000,
+    "initialMs": 16.19999998807907,
+    "domAtRest": 431,
+    "domMax": 539,
+    "jumpScroll": {
+      "n": 100,
+      "p50": 26.69999998807907,
+      "p95": 26.900000005960464,
+      "max": 28.599999994039536
+    },
+    "continuousScroll": {
+      "n": 200,
+      "p50": 26.69999998807907,
+      "p95": 26.900000005960464,
+      "max": 28.700000017881393
+    },
+    "wallMs": 8118
+  },
+  "grid5000": {
+    "n": 5000,
+    "filledCells": 200000,
+    "virtualCells": 25000000,
+    "initialMs": 14.599999994039536,
+    "domAtRest": 431,
+    "domMax": 539,
+    "jumpScroll": {
+      "n": 100,
+      "p50": 26.69999998807907,
+      "p95": 26.80000001192093,
+      "max": 27.700000017881393
+    },
+    "continuousScroll": {
+      "n": 200,
+      "p50": 26.69999998807907,
+      "p95": 26.900000005960464,
+      "max": 27.099999994039536
+    },
+    "wallMs": 8140
+  },
+  "graph5000": {
+    "nodes": 5000,
+    "edges": 7495,
+    "layoutMs": 12775.699999988079,
+    "renderMs": 1857.2999999821186,
+    "layoutPlusRenderMs": 14632.999999970198,
+    "mainThread": {
+      "longTaskMaxMs": 0,
+      "heartbeatMaxLagMs": 24.799999982118607
+    },
+    "interactions": null,
+    "wallMs": 14738
+  }
+}

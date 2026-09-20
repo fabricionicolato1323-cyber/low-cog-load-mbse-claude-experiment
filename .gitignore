@@ -10,3 +10,4 @@ spikes/**/out/
 *.sqlite-wal
 *.sqlite-shm
 .tmp-*.log
+dist-ts/

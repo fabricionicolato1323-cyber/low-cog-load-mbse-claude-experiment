@@ -7,11 +7,11 @@ const elk = new ELK({ workerUrl });
 
 export interface Positions { pos: Map<string, { x: number; y: number }>; ms: number }
 
-export async function layoutElk(g: Graph, direction: "RIGHT" | "DOWN" = "RIGHT"): Promise<Positions> {
+export async function layoutElk(g: Graph, direction: "RIGHT" | "DOWN" = "RIGHT", extra: Record<string, string> = {}): Promise<Positions> {
   const t0 = performance.now();
   const res = await elk.layout({
     id: "root",
-    layoutOptions: { "elk.algorithm": "layered", "elk.direction": direction, "elk.spacing.nodeNode": "24", "elk.layered.spacing.nodeNodeBetweenLayers": "60" },
+    layoutOptions: { "elk.algorithm": "layered", "elk.direction": direction, "elk.spacing.nodeNode": "24", "elk.layered.spacing.nodeNodeBetweenLayers": "60", ...extra },
     children: g.nodes.map((n) => ({ id: n.id, width: n.w, height: n.h })),
     edges: g.edges.map((e) => ({ id: e.id, sources: [e.source], targets: [e.target] })),
   });

@@ -17,6 +17,7 @@ const wanted = process.argv.slice(2);
 const ALL = ["graph500", "collapsed5000", "grid500", "grid5000", "graph5000"];
 const names = wanted.length ? wanted : ALL;
 const TIMEOUT: Record<string, number> = { graph5000: 300_000, collapsed5000: 240_000 };
+for (const v of ["collapsed5000_thorough1", "collapsed5000_cap3", "collapsed5000_cap3_thorough1"]) TIMEOUT[v] = 240_000;
 
 await build({ root: pkgRoot, logLevel: "warn" });
 const server = await preview({ root: pkgRoot, preview: { port: 4179, host: "127.0.0.1", strictPort: true } });

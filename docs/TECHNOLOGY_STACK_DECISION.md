@@ -1,6 +1,7 @@
 # Technology Stack Decision
 
 Status: **Proposed - recommended for adoption**, subject to the Slice 0 falsification spikes (roadmap). Date: 2026-09-19.
+**Update 2026-09-20:** Slice 0 spikes are complete. No flip condition (§4) was triggered; three assumptions were amended (local LLM decomposition R1, dense bounded graph views R6, rebuild time budget) and version/config constraints were added. See `adr/0001-stack-after-slice0.md` (amends this document) and `slice0/EVIDENCE.md`. Where this document and ADR-0001 disagree, ADR-0001 governs.
 Depends on: `REQUIREMENTS_ANALYSIS.md` (drivers D1-D12), `ARCHITECTURE_OPTIONS.md` (Option A chosen).
 
 Version numbers are deliberately not pinned here; pin exact versions in Slice 0 after checking current releases. Statements about third-party product status are as I understand them and must be verified at adoption.

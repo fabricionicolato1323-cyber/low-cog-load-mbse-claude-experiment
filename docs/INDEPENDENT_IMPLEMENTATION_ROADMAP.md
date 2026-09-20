@@ -47,6 +47,7 @@ Slices 9-12 are order-flexible after Slice 8; Slice 7 may swap with Slice 6.
 ## 4. Slice detail
 
 ### Slice 0 - Foundations & falsification spikes
+**Status (2026-09-20): executed; report in `slice0/EVIDENCE.md`, decisions in `adr/0001`, `adr/0002`. Slice 1 is NOT started and awaits explicit authorisation and acceptance of ADR-0001.**
 **Goal:** a buildable, test-running repo and evidence that the stack's riskiest assumptions hold.
 **Scope:** npm workspace + TS project references; package skeletons (`kernel`, `app`, `api`, `web`, `adapters/*`, `contracts`, `profiles`); boundary lint rules (kernel purity, no methodology/vendor strings under `kernel/`); zod->JSON Schema generation pipeline; one-command local test; Linux-in-Docker test script; ADR template.
 **Spikes (timeboxed):**

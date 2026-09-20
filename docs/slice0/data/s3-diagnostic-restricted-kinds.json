@@ -1,0 +1,37 @@
+[
+  {
+    "file": "s3-gemma3_4b-constrained.jsonl",
+    "predicted": 53,
+    "gold": 52,
+    "typedPrecision": 0.58,
+    "typedRecall": 0.6
+  },
+  {
+    "file": "s3-phi4-mini-constrained.jsonl",
+    "predicted": 37,
+    "gold": 52,
+    "typedPrecision": 0.59,
+    "typedRecall": 0.42
+  },
+  {
+    "file": "s3-phi4-mini-unconstrained.jsonl",
+    "predicted": 38,
+    "gold": 52,
+    "typedPrecision": 0.61,
+    "typedRecall": 0.44
+  },
+  {
+    "file": "s3-qwen3.5_4b-constrained.jsonl",
+    "predicted": 53,
+    "gold": 52,
+    "typedPrecision": 0.62,
+    "typedRecall": 0.63
+  },
+  {
+    "file": "s3-qwen3.5_9b-constrained.jsonl",
+    "predicted": 51,
+    "gold": 52,
+    "typedPrecision": 0.73,
+    "typedRecall": 0.71
+  }
+]

@@ -1,5 +1,5 @@
 import cytoscape from "cytoscape";
-import { clusterModel, layeredGraph, visibleView, type Graph } from "./data.ts";
+import { capEdgesPerNode, clusterModel, layeredGraph, visibleView, type Graph } from "./data.ts";
 import { layoutElk } from "./layout.ts";
 import { raf2, stats, withJankMonitor } from "./perf.ts";
 
@@ -74,14 +74,15 @@ export async function scenarioGraph(n: number, layers: number, opts: { interact:
 }
 
 /** S4-d: 5,000-leaf model shown as a bounded, collapsed view; expand clusters on demand. */
-export async function scenarioCollapsed() {
+export async function scenarioCollapsed(variant: "baseline" | "thoroughness1" | "cap3" | "cap3+thoroughness1" = "baseline") {
   const m = clusterModel();
   const expanded = new Set<number>();
   const run = async (label: string) => {
     const t0 = performance.now();
-    const g = visibleView(m, expanded);
+    let g = visibleView(m, expanded);
+    if (variant.startsWith("cap3")) g = capEdgesPerNode(g, 3);
     const computeMs = performance.now() - t0;
-    const { pos, ms: layoutMs } = await layoutElk(g);
+    const { pos, ms: layoutMs } = await layoutElk(g, "RIGHT", variant.endsWith("thoroughness1") ? { "elk.layered.thoroughness": "1" } : {});
     const renderMs = await draw(g, pos);
     return { label, visibleNodes: g.nodes.length, visibleEdges: g.edges.length, computeMs, layoutMs, renderMs, totalMs: performance.now() - t0 };
   };
@@ -91,5 +92,5 @@ export async function scenarioCollapsed() {
   for (const c of [3, 12, 25, 41, 58, 66, 83]) expanded.add(c); // 8 expanded -> 92 + 400 = 492 visible
   const stress = await run("8 groups expanded (~490 visible)");
   const inter = await interactions();
-  return { modelLeaves: m.leaves, modelEdges: m.edges.length, initial, expandOne, stress, interactionsAtStress: inter };
+  return { variant, modelLeaves: m.leaves, modelEdges: m.edges.length, initial, expandOne, stress, interactionsAtStress: inter };
 }
