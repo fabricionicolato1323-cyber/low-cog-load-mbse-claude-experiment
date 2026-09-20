@@ -134,6 +134,8 @@ Weights sum to 28 (rows as listed); means computed by script. Scores are judgmen
 ### 5.1 UI technology class: web client (in a local browser now; optionally desktop shell later)
 The lenses required (interactive graph, N² matrices, scenario diagrams, provenance/impact navigation) are exactly where JS libraries are strongest; a web client is also the same artifact that a shared server later serves (D8), and a browser is zero-install for reviewers. Native toolkits (WPF/Avalonia/Qt/JavaFX) offer weaker graph/grid ecosystems and no route to multi-user without a second client. Cost accepted: some desktop niceties (native dialogs) wait for the optional shell.
 
+**Normative interaction architecture (ADR-0004):** Normal Mode follows a modern conversational-assistant pattern rather than a dashboard: conversation is visually dominant, controls/chrome are minimal, and the canonical model appears as a compact secondary contextual surface. Model-element details/actions are disclosed on demand through selection/hover/context-menu/popover/drawer/dialog or an expanded lens. The UI must not require the user to select a lifecycle phase before entering data. Starting state may occur at any abstraction level, including realization/physical architecture; orchestration and gap analysis determine the next question from semantic state.
+
 ### 5.2 Store
 | Option | Assessment |
 |---|---|
